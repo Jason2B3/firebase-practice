@@ -1,24 +1,31 @@
-import logo from './logo.svg';
-import './App.css';
+import {
+  firebaseGET,
+  firebasePOST,
+  firebasePUT,
+  firebaseDELETE,
+} from "./components/fetchFunctions";
+import "./App.css";
 
 function App() {
+  const postHandler = () => firebasePOST();
+  const getHandler = () => firebaseGET();
+  const putHandler = () => firebasePUT();
+  const deleteHandler = () => firebaseDELETE();
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <button onClick={getHandler} className="btn">
+        GET
+      </button>
+      <button onClick={deleteHandler} className="btn">
+        DELETE
+      </button>
+      <button onClick={postHandler} className="btn">
+        POST
+      </button>
+      <button onClick={putHandler} className="btn">
+        PUT
+      </button>
+    </>
   );
 }
 
